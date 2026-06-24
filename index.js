@@ -6,13 +6,13 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 
 app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-console.log(process.env.MONGO_URI);
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("MongoDB Connected Successfully!");
